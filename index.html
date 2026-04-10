@@ -35,7 +35,7 @@
     </p>
 
     <p style="font-size: 18px; margin: 10px 0;">
-      <strong>Estimated Finish:</strong> 11:00 AM – 11:15 AM
+      <strong>Estimated Finish:</strong> ~11:10 AM (based on ~2:40 pace)
     </p>
 
     <p style="font-size: 18px; margin: 10px 0;">
@@ -74,7 +74,7 @@
       </p>
 
       <p style="font-size: 15px; color: #666; margin-top: 14px; line-height: 1.5;">
-        These are time-based estimates using a projected 2:30 finish pace. Your actual position is shown in the live tracker.
+        These are time-based estimates using a projected ~2:40 finish pace. Your actual position is shown in the live tracker.
       </p>
     </div>
   </div>
@@ -134,12 +134,12 @@
       // Saturday, April 11, 2026 at 8:30 AM
       const raceStart = new Date(2026, 3, 11, 8, 30, 0);
 
-      // Expected finish window: 2:30 to 2:45 after start
+      // Displayed expected finish window
       const estFinishEarly = new Date(2026, 3, 11, 11, 0, 0);
       const estFinishLate = new Date(2026, 3, 11, 11, 15, 0);
 
-      // Progress estimate uses 2:30 finish time
-      const projectedFinish = estFinishEarly;
+      // Progress estimate based on ~2:40 finish
+      const projectedFinish = new Date(2026, 3, 11, 11, 10, 0);
 
       const totalMiles = 13.1;
       const totalProjectedMs = projectedFinish - raceStart;
@@ -166,14 +166,14 @@
       } else if (now >= estFinishEarly && now <= estFinishLate) {
         raceClockEl.textContent = formatDuration(elapsedMs);
         statusEl.textContent = "Projected finish window";
-        progress = 1;
+        progress = clamp(elapsedMs / totalProjectedMs, 0, 1);
       } else {
         raceClockEl.textContent = formatDuration(elapsedMs);
         statusEl.textContent = "Projected finish window has passed";
         progress = 1;
       }
 
-      const estimatedMilesCompleted = (progress * totalMiles);
+      const estimatedMilesCompleted = progress * totalMiles;
       const estimatedMilesRemaining = totalMiles - estimatedMilesCompleted;
 
       progressBarFill.style.width = `${(progress * 100).toFixed(1)}%`;
