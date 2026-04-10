@@ -4,17 +4,18 @@
   <title>🏃‍♂️ Track My Race Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="font-family: Arial; text-align: center;">
+
+<body style="font-family: Arial; text-align: center; padding: 20px;">
+
   <h1>🏁 Follow My Half Marathon!</h1>
-  <p>Live location below:</p>
+  <p>Tap below to see my live location during the race:</p>
 
-  <iframe 
-    src="PASTE_YOUR_GOOGLE_MAPS_LINK_HERE"
-    width="100%" 
-    height="600" 
-    style="border:0;">
-  </iframe>
+  <a href="https://maps.app.goo.gl/wmEuJ4ruZdZ7o6JE8" target="_blank"
+     style="display:inline-block; margin-top:20px; font-size:22px; padding:15px 25px; background:#28a745; color:white; text-decoration:none; border-radius:8px;">
+     📍 Track Me Live
+  </a>
 
-  <p>Refresh if needed 🔄</p>
+  <p style="margin-top:30px;">Updates in real-time via Google Maps</p>
+
 </body>
 </html>
